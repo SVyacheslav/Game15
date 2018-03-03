@@ -1,26 +1,23 @@
-#include "Game.h"
 #include "FormGame15.h"
-//#include<iostream>
 
 
 
 Game::Game()
 {
-	/*
+
 	GameMap = new int *[4];
 	for (int i = 0; i < 4; ++i) {
-	GameMap[i] = new int[4];
+		GameMap[i] = new int[4];
 	}
 	RightMap = new int *[4];
 	for (int i = 0; i < 4; ++i) {
-	RightMap[i] = new int[4];
+		RightMap[i] = new int[4];
 	}
-	*/
 }
 
 Game::~Game()
 {
-	/*
+
 	for (int i = 0; i < 4; ++i) {
 		delete[] GameMap[i];
 	}
@@ -29,6 +26,4 @@ Game::~Game()
 		delete[] RightMap[i];
 	}
 	delete[] RightMap;
-	*/
 }
-

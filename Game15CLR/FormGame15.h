@@ -24,7 +24,7 @@ namespace Game15CLR {
 			//
 			//TODO: добавьте код конструктора
 			//
-			
+
 		}
 
 	protected:
@@ -58,23 +58,6 @@ namespace Game15CLR {
 	private: System::Windows::Forms::Button^  button13;
 	private: System::Windows::Forms::Button^  button14;
 	private: System::Windows::Forms::Button^  button15;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 	private:
 		/// <summary>
 		/// Обязательная переменная конструктора.
@@ -414,94 +397,94 @@ namespace Game15CLR {
 
 		//int position = Convert.ToInt16(((Button^)sender).Tag);
 		//MessageBox.Show(position.ToString());
-		
+
 		Button^ temp = (Button^)sender;
 		int position = Convert::ToInt16(temp->Tag); // Необходимо сконвертировать номер кнопки (текст в поле Tag) в целое число 
 													//MessageBox.Show(position)
 													//button1->Click = Convert::ToInt16(Tag);
-		//game.Shift(position);
-		//refresh();
+		game.Shift(position);
+		refresh();
 
-		button(position)->Text = position.ToString();		  
+		//button(position)->Text = position.ToString();
 		//MessageBox::Show(position.ToString());
-		//if (game.CheckMap()) {
-		//	MessageBox::Show(("You have WIN!"));
-		//	StartGame();
-		//}
+		if (game.CheckMap()) {
+			MessageBox::Show(("You have WIN!"));
+			StartGame();
+		}
 
 	}
 
 
-private: Button ^ button(int position) {		//Функция которая выводит (возвращает) цифры на кнопки при клике
-	switch (position)
-	{
+	private: Button ^ button(int position) {		//Функция которая выводит (возвращает) цифры на кнопки при клике
+		switch (position)
+		{
 
-	case 0: return button0; //break;
-	case 1: return button1; //break;
-	case 2: return button2; //break;
-	case 3: return button3; //break;
-	case 4: return button4; //break;
-	case 5: return button5; //break;
-	case 6: return button6; //break;
-	case 7: return button7; //break;
-	case 8: return button8; //break;
-	case 9: return button9; //break;
-	case 10: return button10; //break;
-	case 11: return button11; //break;
-	case 12: return button12; //break;
-	case 13: return button13; //break;
-	case 14: return button14; //break;
-	case 15: return button15; //break;
+		case 0: return button0; //break;
+		case 1: return button1; //break;
+		case 2: return button2; //break;
+		case 3: return button3; //break;
+		case 4: return button4; //break;
+		case 5: return button5; //break;
+		case 6: return button6; //break;
+		case 7: return button7; //break;
+		case 8: return button8; //break;
+		case 9: return button9; //break;
+		case 10: return button10; //break;
+		case 11: return button11; //break;
+		case 12: return button12; //break;
+		case 13: return button13; //break;
+		case 14: return button14; //break;
+		case 15: return button15; //break;
 
-	default: return nullptr; //break;
+		default: return nullptr; //break;
+
+		}
 
 	}
 
-}
-
-private: void StartGame() {
+	private: void StartGame() {
 		game.Start();
-		//game.CreateGameMap();
+		game.CreateGameMap();
 		refresh();
 	};
 
-private: System::Void startToolStripMenuItem_Click(System::Object^  sender, System::EventArgs^  e) {
-	//StartGame();
-}
+	private: System::Void startToolStripMenuItem_Click(System::Object^  sender, System::EventArgs^  e) {
+		StartGame();
+	}
 
 
-		 private: void refresh() {
-			/*
-			 vector<Button^> buttons;
-			 buttons.push_back(button0);
-			 buttons.push_back(button1);
-			 buttons.push_back(button2);
-			 buttons.push_back(button3);
-			 buttons.push_back(button4);
-			 buttons.push_back(button5);
-			 buttons.push_back(button6);
-			 buttons.push_back(button7);
-			 buttons.push_back(button8);
-			 buttons.push_back(button9);
-			 buttons.push_back(button10);
-			 buttons.push_back(button11);
-			 buttons.push_back(button12);
-			 buttons.push_back(button13);
-			 buttons.push_back(button14);
-			 buttons.push_back(button15);
-			*/
-			 for (int position = 0; position < 16; position++)
-			 {
-				// button(position)->Text = game.GetNumber(position).ToString;	//Присваиваим номер кнопки позиции
-				//buttons[position]->Visible = (game.GetNumber(position) >0);
-				// button(position)->Visible = (game.GetNumber(position) >0);	
+	private: void refresh() {
 
-			 }
+		vector<Button^> buttons;
+		buttons.push_back(button0);
+		buttons.push_back(button1);
+		buttons.push_back(button2);
+		buttons.push_back(button3);
+		buttons.push_back(button4);
+		buttons.push_back(button5);
+		buttons.push_back(button6);
+		buttons.push_back(button7);
+		buttons.push_back(button8);
+		buttons.push_back(button9);
+		buttons.push_back(button10);
+		buttons.push_back(button11);
+		buttons.push_back(button12);
+		buttons.push_back(button13);
+		buttons.push_back(button14);
+		buttons.push_back(button15);
 
-		 }
+		for (int position = 0; position < 16; position++)
+		{
+			button(position)->Text = game.GetNumber(position).ToString();	//Присваиваим номер кнопки позиции
+			buttons[position]->Visible = (game.GetNumber(position) > 0);
+			button(position)->Visible = (game.GetNumber(position) > 0);
 
-private: System::Void FormGame15_Load(System::Object^  sender, System::EventArgs^  e) {
-	//StartGame();
-}
-};
+		}
+
+	}
+
+	private: System::Void FormGame15_Load(System::Object^  sender, System::EventArgs^  e) {
+		StartGame();
+	}
+	};
 }
